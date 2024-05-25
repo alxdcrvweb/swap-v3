@@ -356,6 +356,7 @@ export default function AddLiquidity({
               value={formattedAmounts[Field.CURRENCY_A]}
               onUserInput={onFieldAInput}
               onMax={() => {
+                console.log(maxAmounts[Field.CURRENCY_A], maxAmounts[Field.CURRENCY_A]?.toExact());
                 onFieldAInput(maxAmounts[Field.CURRENCY_A]?.toExact() ?? '');
               }}
               onCurrencySelect={handleCurrencyASelect}

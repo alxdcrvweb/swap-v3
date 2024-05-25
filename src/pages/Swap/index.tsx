@@ -38,6 +38,7 @@ import { computeTradePriceBreakdown, warningSeverity } from '../../utils/prices'
 import AppBody from '../AppBody';
 import { ClickableText } from '../Pool/styleds';
 import Loader from '../../components/Loader';
+import { useCurrencyBalance } from 'state/wallet/hooks';
 
 export default function Swap() {
   const loadedUrlParams = useDefaultsFromURLSearch();
@@ -80,11 +81,13 @@ export default function Swap() {
   // swap state
   const { independentField, typedValue, recipient } = useSwapState();
   const { v2Trade, currencyBalances, parsedAmount, currencies, inputError: swapInputError } = useDerivedSwapInfo();
+  // console.log(currencyBalances.INPUT?.currency.symbol == 'ETH');
   const {
     wrapType,
     execute: onWrap,
     inputError: wrapInputError,
   } = useWrapCallback(currencies[Field.INPUT], currencies[Field.OUTPUT], typedValue);
+  const selectedCurrencyBalance = useCurrencyBalance(account ?? undefined, currencies[Field.INPUT] ?? undefined);
 
   const showWrap: boolean = wrapType !== WrapType.NOT_APPLICABLE;
   const trade = showWrap ? undefined : v2Trade;
@@ -225,9 +228,13 @@ export default function Swap() {
     [onCurrencySelection]
   );
 
-  const handleMaxInput = useCallback(() => {
+  const handleMaxInput = () => {
+    // console.log(maxAmountInput.toExact());
     maxAmountInput && onUserInput(Field.INPUT, maxAmountInput.toExact());
-  }, [maxAmountInput, onUserInput]);
+    if(currencyBalances.INPUT?.currency.symbol == 'ETH' && selectedCurrencyBalance) {
+      onUserInput(Field.INPUT, selectedCurrencyBalance.toExact());
+    }
+  };
 
   const handleOutputSelect = useCallback(
     (outputCurrency) => onCurrencySelection(Field.OUTPUT, outputCurrency),
