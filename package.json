@@ -1,7 +1,6 @@
 {
   "name": "name",
   "private": true,
-  "license": "GPL-3.0-or-later",
   "devDependencies": {
     "@ethersproject/experimental": "5.0.1",
     "@popperjs/core": "2.9.2",
