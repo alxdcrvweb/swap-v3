@@ -89,7 +89,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "postinstall": "rmdir /S /Q node_modules\\@uniswap\\sdk && xcopy /E /I forks\\@uniswap\\sdk node_modules\\@uniswap\\sdk && rmdir /S /Q node_modules\\@uniswap\\default-token-list && xcopy /E /I forks\\@uniswap\\default-token-list node_modules\\@uniswap\\default-token-list && npm install @types/lodash && npm install @types/react-router@5.1.14",
+    "postinstall": "rm -rf ./node_modules/@uniswap/sdk; cp -r ./forks/@uniswap/sdk ./node_modules/@uniswap/sdk; rm -rf ./node_modules/@uniswap/default-token-list; cp -r ./forks/@uniswap/default-token-list ./node_modules/@uniswap/default-token-list; npm install @types/lodash && npm install @types/react-router@5.1.14",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
