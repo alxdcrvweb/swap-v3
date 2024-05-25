@@ -196,7 +196,7 @@ function Web3StatusInner() {
               params: [
                 {
                   chainId: '0x' + ChainId['ONCHAIN'].toString(16),
-                  chainName: 'Onchain testnet',
+                  chainName: 'Onchain',
                   nativeCurrency: {
                     name: 'Onchain',
                     symbol: 'ETH',

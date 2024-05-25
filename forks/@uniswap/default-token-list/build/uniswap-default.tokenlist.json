@@ -380,14 +380,6 @@
       "decimals": 18,
       "chainId": 27563,
       "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xd0A1E359811322d97991E03f863a0C30C2cF029C/logo.png"
-    },
-    {
-      "name": "Kebab",
-      "address": "0x1e29999D823056e33E398a5B56917e6FfD3D8a09",
-      "symbol": "OR",
-      "decimals": 18,
-      "chainId": 27563,
-      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xAaF64BFCC32d0F15873a02163e7E500671a4ffcD/logo.png"
     }
   ]
 }
