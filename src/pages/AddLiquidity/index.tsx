@@ -131,7 +131,7 @@ export default function AddLiquidity({
     let estimate,
       method: (...args: any) => Promise<TransactionResponse>,
       args: Array<string | string[] | number>,
-      value: BigNumber | null;
+      value: BigNumber | string | null;
     if (currencyA === ETHER || currencyB === ETHER) {
       const tokenBIsETH = currencyB === ETHER;
       console.log(
@@ -140,7 +140,8 @@ export default function AddLiquidity({
         amountsMin[tokenBIsETH ? Field.CURRENCY_A : Field.CURRENCY_B].toString(), // token min
         amountsMin[tokenBIsETH ? Field.CURRENCY_B : Field.CURRENCY_A].toString(), // eth min
         account,
-        Number(deadline)
+        Number(deadline),
+        BigNumber.from((tokenBIsETH ? parsedAmountB : parsedAmountA).raw.toString())
       );
       estimate = router.estimateGas.addLiquidityETH;
       method = router.addLiquidityETH;
