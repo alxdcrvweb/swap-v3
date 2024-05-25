@@ -194,6 +194,7 @@ export function useURLWarningToggle(): () => void {
  * @param tokenB the other token
  */
 export function toV2LiquidityToken([tokenA, tokenB]: [Token, Token]): Token {
+  console.log(tokenA, tokenB);
   return new Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB), 18, LP_TOKEN_SYMBOL, LP_TOKEN_NAME);
 }
 
