@@ -380,6 +380,14 @@
       "decimals": 18,
       "chainId": 27563,
       "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xd0A1E359811322d97991E03f863a0C30C2cF029C/logo.png"
+    },
+    {
+      "name": "Onchain Coin",
+      "address": "0xde31521CC76810D2b4f41C38f2a5D6b498217145",
+      "symbol": "$ONCHAIN",
+      "decimals": 18,
+      "chainId": 27563,
+      "logoURI": "https://s3.us-east-2.amazonaws.com/assets.rollbridge.app/7d0a9a65497ca35ca1153.png"
     }
   ]
 }
