@@ -4,6 +4,7 @@
   "license": "GPL-3.0-or-later",
   "devDependencies": {
     "@ethersproject/experimental": "5.0.1",
+    "@metamask/providers": "^16.1.0",
     "@popperjs/core": "2.9.2",
     "@reach/dialog": "0.15.0",
     "@reach/portal": "0.15.0",
@@ -25,6 +26,7 @@
     "@types/rebass": "4.0.8",
     "@types/styled-components": "5.1.10",
     "@types/wcag-contrast": "3.0.0",
+    "@types/web3": "^1.2.2",
     "@typescript-eslint/eslint-plugin": "6.0.0",
     "@typescript-eslint/parser": "6.0.0",
     "@uniswap/lib": "^1.1.1",
@@ -63,7 +65,7 @@
     "prettier": "2.3.2",
     "qs": "6.10.1",
     "react": "17.0.2",
-    "react-device-detect": "1.17.0",
+    "react-device-detect": "^1.17.0",
     "react-dom": "17.0.2",
     "react-feather": "2.0.9",
     "react-i18next": "10.13.2",
@@ -89,7 +91,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "postinstall": "rm -rf ./node_modules/@uniswap/sdk; cp -r ./forks/@uniswap/sdk ./node_modules/@uniswap/sdk; rm -rf ./node_modules/@uniswap/default-token-list; cp -r ./forks/@uniswap/default-token-list ./node_modules/@uniswap/default-token-list; npm install @types/lodash && npm install @types/react-router@5.1.14",
+    "postinstall": "rmdir /S /Q node_modules\\@uniswap\\sdk && xcopy /E /I forks\\@uniswap\\sdk node_modules\\@uniswap\\sdk && rmdir /S /Q node_modules\\@uniswap\\default-token-list && xcopy /E /I forks\\@uniswap\\default-token-list node_modules\\@uniswap\\default-token-list && npm install @types/lodash && npm install @types/react-router@5.1.14",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {

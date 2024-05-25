@@ -29,6 +29,8 @@ import Loader from '../Loader';
 
 import { RowBetween } from '../Row';
 import WalletModal from '../WalletModal';
+import { isMobile } from 'react-device-detect';
+import { ChainId } from '@uniswap/sdk';
 
 const IconWrapper = styled.div<{ size?: number }>`
   ${({ theme }) => theme.flexColumnNoWrap};
@@ -177,7 +179,44 @@ function Web3StatusInner() {
 
   const hasPendingTransactions = !!pending.length;
   const toggleWalletModal = useWalletModalToggle();
-
+  const changeNetwork = async () => {
+    if (!isMobile && window.ethereum) {
+      try {
+        //@ts-ignore
+        await window?.ethereum?.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: '0x' + ChainId['ONCHAINT'].toString(16) }],
+        });
+      } catch (switchError: any) {
+        if (switchError?.code === 4902) {
+          try {
+            //@ts-ignore
+            await window?.ethereum?.request({
+              method: 'wallet_addEthereumChain',
+              params: [
+                {
+                  chainId: '0x' + ChainId['ONCHAINT'].toString(16),
+                  chainName: 'Onchain testnet',
+                  nativeCurrency: {
+                    name: 'Onchain',
+                    symbol: 'ETH',
+                    decimals: 18,
+                  },
+                  rpcUrls: ['https://rpc-breakable-copper-felidae-47huwy7svt.t.conduit.xyz/'],
+                },
+              ],
+            });
+          } catch (e) {
+            console.log('%cWalletStore.ts line:212 e', 'color: #007acc;', e);
+          }
+        }
+        console.log('%cWalletStore.ts line:163 switchError', 'color: #007acc;', switchError);
+        if (!window?.ethereum) {
+          toggleWalletModal();
+        }
+      }
+    }
+  };
   if (account) {
     return (
       <Web3StatusConnected id="web3-status-connected" onClick={toggleWalletModal} pending={hasPendingTransactions}>
@@ -195,9 +234,9 @@ function Web3StatusInner() {
     );
   } else if (error) {
     return (
-      <Web3StatusError onClick={toggleWalletModal}>
+      <Web3StatusError onClick={changeNetwork}>
         <NetworkIcon />
-        <Text>{error instanceof UnsupportedChainIdError ? 'Wrong Network' : 'Error'}</Text>
+        <Text>{error instanceof UnsupportedChainIdError ? 'Change network' : 'Error'}</Text>
       </Web3StatusError>
     );
   } else {

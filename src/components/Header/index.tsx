@@ -285,7 +285,7 @@ export default function Header() {
 
       <HeaderControls>
         <HeaderElement>
-          <NetworkCard>
+          {/* <NetworkCard>
             <a
               href="https://explorerl2new-breakable-copper-felidae-47huwy7svt.t.conduit.xyz/"
               target="_blank"
@@ -293,7 +293,7 @@ export default function Header() {
             >
               Faucet
             </a>
-          </NetworkCard>
+          </NetworkCard> */}
           <HideSmall>
             {chainId && NETWORK_LABELS[chainId] && (
               <NetworkCard title={NETWORK_LABELS[chainId]}>{NETWORK_LABELS[chainId]}</NetworkCard>
