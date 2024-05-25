@@ -24,7 +24,7 @@ export function getEtherscanLink(
   data: string,
   type: 'transaction' | 'token' | 'address' | 'block'
 ): string {
-  const prefix = `https://explorerl2new-breakable-copper-felidae-47huwy7svt.t.conduit.xyz`;
+  const prefix = `https://scan.onchaincoin.io`;
 
   switch (type) {
     case 'transaction': {

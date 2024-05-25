@@ -9,8 +9,8 @@ import {
 } from '../connectors';
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
-export const FACTORY_ADDRESS = '0xBdB7fB554107C2B5c692536B70C2823b7B477Bb4';
-export const ROUTER_ADDRESS = '0x805D37aCDd1D11d5Af8461185F7dB12b56B79f42';
+export const FACTORY_ADDRESS = '0x08c4f9FB1f7De09e87128e8dc3B769b7A02979F2';
+export const ROUTER_ADDRESS = '0xBbcb698B34AA0ed5AF45Edeb058BC96C2bbc94da';
 
 export const LP_TOKEN_NAME = 'Uniswap V2';
 export const LP_TOKEN_SYMBOL = 'UNI-V2';
@@ -50,7 +50,7 @@ const WETH_ONLY: ChainTokenList = {
   [ChainId.RINKEBY]: [WETH[ChainId.RINKEBY]],
   [ChainId.GÖRLI]: [WETH[ChainId.GÖRLI]],
   [ChainId.KOVAN]: [WETH[ChainId.KOVAN]],
-  [ChainId.ONCHAINT]: [WETH[ChainId.ONCHAINT]],
+  [ChainId.ONCHAIN]: [WETH[ChainId.ONCHAIN]],
 
 };
 
@@ -84,7 +84,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.RINKEBY]: [...WETH_ONLY[ChainId.RINKEBY]],
   [ChainId.GÖRLI]: [...WETH_ONLY[ChainId.GÖRLI]],
   [ChainId.KOVAN]: [...WETH_ONLY[ChainId.KOVAN]],
-  [ChainId.ONCHAINT]: [...WETH_ONLY[ChainId.ONCHAINT]],
+  [ChainId.ONCHAIN]: [...WETH_ONLY[ChainId.ONCHAIN]],
 
 };
 

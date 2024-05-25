@@ -185,7 +185,7 @@ function Web3StatusInner() {
         //@ts-ignore
         await window?.ethereum?.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0x' + ChainId['ONCHAINT'].toString(16) }],
+          params: [{ chainId: '0x' + ChainId['ONCHAIN'].toString(16) }],
         });
       } catch (switchError: any) {
         if (switchError?.code === 4902) {
@@ -195,14 +195,14 @@ function Web3StatusInner() {
               method: 'wallet_addEthereumChain',
               params: [
                 {
-                  chainId: '0x' + ChainId['ONCHAINT'].toString(16),
+                  chainId: '0x' + ChainId['ONCHAIN'].toString(16),
                   chainName: 'Onchain testnet',
                   nativeCurrency: {
                     name: 'Onchain',
                     symbol: 'ETH',
                     decimals: 18,
                   },
-                  rpcUrls: ['https://rpc-breakable-copper-felidae-47huwy7svt.t.conduit.xyz/'],
+                  rpcUrls: ['https://mainnet.onchaincoin.io/'],
                 },
               ],
             });
